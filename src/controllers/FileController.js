@@ -2,6 +2,7 @@ const Box = require('../models/Box')
 const File = require('../models/Arquivo')
 
 
+
 class FileController {
     async store(req, res) {
         const box = await Box.findById(req.params.id)
@@ -15,7 +16,7 @@ class FileController {
 
         await box.save()
 
-        req.io.sockets.in(box._id).emit("file", file)
+        // req.io.sockets.in(box._id).emit("file", file)
 
         return res.json(file)
         
