@@ -6,8 +6,8 @@ const cors = require('cors')
 const app = express();
 app.use(cors())
 
-const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const server = require("http").Server(app)
+const io = require("socket.io")(server)
 
 io.on('connection', socket => {
     socket.on('connectRoom', box => {
@@ -32,7 +32,7 @@ app.use(express.json())
 
 //permite que envie arquivos tipo img.mp4 nas requisções
 app.use(express.urlencoded({ extended: true }))
-app.use('/files', express.static(path.resolve(__dirname, '..','temp')))
+app.use("/files", express.static(path.resolve(__dirname, '..','temp')))
 
 app.use(require('./routes'))
 
