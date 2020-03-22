@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack123@cluster0-bic8w.mongodb.ne
     useUnifiedTopology:true
 })
 
-app.use((res, req, next) => {
+app.use((req, res, next) => {
     req.io = io
     return next()
 })
